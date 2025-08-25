@@ -1,6 +1,6 @@
 # Turnkey RPC Proxy
 
-A secure HTTP JSON-RPC proxy server that integrates [Turnkey's](https://turnkey.com) policy engine and signing infrastructure with any Ethereum development tooling (Foundry, Hardhat, Remix, etc.).
+A secure HTTP JSON-RPC proxy server that integrates [Turnkey's](https://turnkey.com) policy engine and signing infrastructure with any Ethereum development tooling (Foundry, Remix, etc.).
 
 ## 🚀 Features
 
@@ -79,27 +79,6 @@ forge script script/Deploy.s.sol \\
 forge script script/Interact.s.sol \\
   --rpc-url http://localhost:8545 \\
   --unlocked
-```
-
-### Use with Hardhat
-
-Add to your `hardhat.config.js`:
-
-```javascript
-module.exports = {
-  networks: {
-    turnkey: {
-      url: "http://localhost:8545",
-      accounts: [] // Leave empty, proxy handles signing
-    }
-  }
-};
-```
-
-Then deploy:
-
-```bash
-npx hardhat run scripts/deploy.js --network turnkey
 ```
 
 ### Use with Remix
