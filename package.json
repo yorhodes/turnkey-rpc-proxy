@@ -1,0 +1,45 @@
+{
+  "name": "turnkey-rpc-proxy",
+  "version": "1.0.0",
+  "description": "HTTP JSON-RPC proxy server that integrates Turnkey's policy engine with Foundry scripting",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node",
+    "start": "bun run dist/index.js",
+    "dev": "bun --hot src/index.ts",
+    "test": "bun test",
+    "lint": "bun run eslint src/**/*.ts",
+    "format": "bun run prettier --write src/**/*.ts"
+  },
+  "keywords": [
+    "turnkey",
+    "foundry",
+    "ethereum",
+    "rpc",
+    "proxy",
+    "policy-engine",
+    "signing"
+  ],
+  "author": "Yorke Rhodes <email@yorke.dev>",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@turnkey/api-key-stamper": "^0.4.7",
+    "@turnkey/ethers": "^1.2.8",
+    "@turnkey/http": "^2.19.0",
+    "ethers": "^6.13.2",
+    "winston": "^3.14.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@types/bun": "^1.2.20",
+    "@types/jest": "^29.5.12",
+    "eslint": "^9.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.1.0"
+  }
+}
