@@ -100,9 +100,15 @@ class TurnkeyRpcProxy {
           break;
 
         case 'eth_sendTransaction':
-          const tx = await this.turnkeySigner.sendTransaction(params[0]);
-          this.logger.info('Transaction sent', { hash: tx.hash });
-          result = tx.hash;
+          const populated = await this.turnkeySigner.populateTransaction(params[0]);
+          delete populated.from;
+          const signed = await this.turnkeySigner.signTransaction(populated);
+          const response = await this.upstreamProvider.send(
+            'eth_sendRawTransaction',
+            [signed]
+          );
+          this.logger.info('Transaction sent', { hash: response });
+          result = response;
           break;
 
         case 'eth_signTransaction':
