@@ -3,15 +3,3 @@ src = "src"
 out = "out"
 libs = ["lib"]
 solc_version = "0.8.19"
-
-[rpc_endpoints]
-# Use Turnkey RPC Proxy for secure signing
-turnkey = "http://localhost:8545"
-
-# Standard endpoints for comparison/fallback  
-mainnet = "${MAINNET_RPC_URL}"
-sepolia = "${SEPOLIA_RPC_URL}"
-
-[etherscan]
-mainnet = { key = "${ETHERSCAN_API_KEY}" }
-sepolia = { key = "${ETHERSCAN_API_KEY}" }

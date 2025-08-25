@@ -1,6 +1,6 @@
+import { ApiKeyStamper } from '@turnkey/api-key-stamper';
 import { TurnkeySigner } from '@turnkey/ethers';
 import { TurnkeyClient } from '@turnkey/http';
-import { ApiKeyStamper } from '@turnkey/api-key-stamper';
 import { JsonRpcProvider } from 'ethers';
 import { createServer } from 'http';
 import winston from 'winston';
@@ -132,11 +132,11 @@ class TurnkeyRpcProxy {
         jsonrpc: '2.0',
         error: {
           code: -32603,
-          message: 'Internal error',
-          data: error instanceof Error ? error.message : String(error)
+          message: error instanceof Error ? error.message : String(error),
+          data: error
         },
         id
-      };
+      }
     }
   }
 
